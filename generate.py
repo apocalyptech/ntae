@@ -107,18 +107,6 @@ class Variant(object):
             l.append(('Back', self.back))
         return l
 
-    def has_front(self):
-        """
-        Convenience function for Jinja
-        """
-        return len(self.front) > 0
-
-    def has_back(self):
-        """
-        Convenience function for Jinja
-        """
-        return len(self.back) > 0
-
 class Sheet(object):
     """
     A sheet - there are seven here (one for each song, one cover,
