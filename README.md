@@ -29,6 +29,8 @@ suspect nobody would bother.  :)  See below for the general format the
 data should take, though a brief glance inside the directories yourself
 should make it pretty clear.
 
+The index itself can been seen here: http://apocalyptech.com/ntae/
+
 REQUIREMENTS
 ------------
 
