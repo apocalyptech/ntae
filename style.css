@@ -1,0 +1,15 @@
+BODY {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.sheets:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.sheetimage {
+    float: left;
+    text-align: center;
+    font-style: italic;
+    font-size: smaller;
+    padding-right: 1em;
+}

@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>Nine Inch Nails: Not The Actual Events - variants</title>
+<link rel="stylesheet" type="text/css" media="all" href="style.css?v2"></link>
+</head>
+<body>
+
+<h1>Nine Inch Nails: Not The Actual Events - Variants</h1>
+
+<p>The <a href="https://store.nin.com/products/not-the-actual-events-digital-object">"Physical Component"</a>
+of Nine Inch Nails' "Not The Actual Events" release started arriving in the
+mail on the week of Februrary 27, 2017.  It quickly became apparent that
+there were multiple variants of many of the sheets contained inside, so
+this page is an attempt to lay them all out in a big ol' index.</p>
+
+<p>If I'm missing anything here, please post over in the
+<a href="http://www.echoingthesound.org/community/threads/4430-Not-The-Actual-Events-Physical-Edition-variations/">Physical Edition variations thread at ETS</a>,
+and I'll grab them from there, though if you don't have an ETS account and
+want to share anyway, feel free to shoot me an email at
+<a href="mailto:pez@apocalyptech.com">pez@apocalyptech.com</a>.</p>
+
+<p>Feel free to mirror this elsewhere on the internet at your own discretion -
+the original sources for all images on this page are linked below each image.</p>
+
+{% for sheet in sheets -%}
+
+    <h2>{{ sheet.name }}</h2>
+
+    <blockquote>
+    {% for variant in sheet.variants -%}
+
+        <strong>{{ variant.desc }}</strong>
+
+        {% for (label, images) in variant.loop_images() -%}
+
+            <blockquote class="sheets">
+                <p>{{ label }}:</p>
+                {% for image in images -%}
+                    <div class="sheetimage">
+                    <a href="{{ image.image_file }}"><img src="{{ image.thumb_file }}" border="0"></a><br />
+                    ({{ image.width }}x{{ image.height }})
+                    {% if image.has_attributions() -%}
+                        <br />
+                        ({% for (source, link) in image.attributions -%}
+                        <a href="{{ link }}">{{ source }}</a>{% if not loop.last %} | {% endif -%}
+                        {% endfor %})
+                    {% endif %}
+                    </div>
+                {% endfor -%}
+            </blockquote>
+
+        {% endfor -%}
+
+    {% endfor -%}
+
+    </blockquote>
+
+{% endfor -%}
+
+</body>
+</html>
