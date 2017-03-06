@@ -29,11 +29,21 @@ class VariantImage(object):
         self.width = im.width
         self.height = im.height
 
-        # Create a thumbnail if we need to
+        # Create a thumbnail if we need to.  We're being a little more fancy
+        # than just using Image.thumbnail() so that all our images are at
+        # the same height, so our floating <div>s don't end up looking weird
+        # when some images are short and the browser width happens to be
+        # Just Wrong.
         if not os.path.exists(self.thumb_file):
             print('Generating %s' % (self.thumb_file))
             im.thumbnail((200, 200))
-            im.save(self.thumb_file)
+            bg = Image.new('RGBA', (im.width, 200), (255, 255, 255, 0))
+            bg.paste(
+                im,
+                (0, int((200-im.height)/2))
+            )
+            bg.save(self.thumb_file)
+            bg.close()
 
         # Close the image
         im.close()
