@@ -158,7 +158,8 @@ class App(object):
 
         track04 = self.new_sheet('04_the_idea_of_you', '04. The Idea of You')
         track04.add_variant('bluered', 'Blue with red text')
-        track04.add_variant('white', 'White with black text')
+        track04.add_variant('whitev1', 'White with black text (version 1)')
+        track04.add_variant('whitev2', 'White with black text (version 2)')
 
         track05 = self.new_sheet('05_burning_bright', '05. Burning Bright (Field on Fire)')
         track05.add_variant('white', 'White with black text')
