@@ -42,7 +42,7 @@ the original sources for all images on this page are linked below each image.</p
                 {% for image in images -%}
                     <div class="sheetimage">
                     <a href="{{ image.image_file }}"><img src="{{ image.thumb_file }}" border="0"></a><br />
-                    ({{ image.width }}x{{ image.height }})
+                    ({{ image.width }}x{{ image.height }} - {{ image.human_size() }})
                     {% if image.has_attributions() -%}
                         <br />
                         ({% for (source, link) in image.attributions -%}

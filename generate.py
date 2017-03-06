@@ -24,6 +24,9 @@ class VariantImage(object):
         # Attribution vars
         self.attributions = []
 
+        # Get filesize
+        self.size = os.stat(self.image_file).st_size
+
         # Open the image to get width/height
         im = Image.open(self.image_file)
         self.width = im.width
@@ -63,6 +66,21 @@ class VariantImage(object):
         Jinja convenience function
         """
         return len(self.attributions) > 0
+
+    def human_size(self):
+        """
+        Returns a human-friendly size, given a number of bytes.
+        Taken from http://stackoverflow.com/questions/14996453/python-libraries-to-calculate-human-readable-filesize-from-bytes
+        """
+        suffixes = ['B', 'KB', 'MB']
+        sz_bytes = self.size
+        if sz_bytes is None or sz_bytes == 0:
+            return '0 B'
+        i = 0
+        while sz_bytes >= 1024 and i < len(suffixes)-1:
+            sz_bytes /= 1024
+            i += 1
+        return '%d %s' % (sz_bytes, suffixes[i])
 
 class Variant(object):
     """
