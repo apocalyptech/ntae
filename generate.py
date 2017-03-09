@@ -3,6 +3,7 @@
 
 import os
 import jinja2
+import datetime
 from PIL import Image
 
 class VariantImage(object):
@@ -201,6 +202,7 @@ class App(object):
 
         page_content = self.template.render({
             'sheets': self.sheets,
+            'today': datetime.datetime.now().strftime('%A, %B %d, %Y'),
         })
         with open('index.html', 'w') as df:
             df.write(page_content)
