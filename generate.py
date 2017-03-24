@@ -174,7 +174,8 @@ class App(object):
 
         track01 = self.new_sheet('01_branches_bones', '01. Branches/Bones')
         track01.add_variant('blue', 'Blue with black text')
-        track01.add_variant('white', 'White with black text')
+        track01.add_variant('white', 'White with black text (version 1)')
+        track01.add_variant('whitev2', 'White with black text (version 2)')
 
         track02 = self.new_sheet('02_dear_world', '02. Dear World,')
         track02.add_variant('black', 'Black with white text')
@@ -184,6 +185,7 @@ class App(object):
         track03 = self.new_sheet('03_shes_gone_away', '03. She\'s Gone Away')
         track03.add_variant('black', 'Black with white text')
         track03.add_variant('red', 'Red with blue text')
+        track03.add_variant('white', 'White with black text')
 
         track04 = self.new_sheet('04_the_idea_of_you', '04. The Idea of You')
         track04.add_variant('bluered', 'Blue with red text')
